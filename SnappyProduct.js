@@ -14,8 +14,8 @@ class SnappyProduct {
 
     }
 
-    // Setters and Getters
-    
+    // Setters and Getters.
+
     setId(id) {
 
         this.#id = id;

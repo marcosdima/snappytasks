@@ -12,11 +12,12 @@ class SnappyOrder {
 
     }
 
+    // Obtiene el precio total de la orden.
     getPrecioTotal() {
 
         let total = 0;
 
-        for (let producto of this.arreglo) {
+        for (let producto of this.#arreglo) {
 
             total += (producto.getPrecio() * producto.getCantidad());
 
@@ -26,7 +27,7 @@ class SnappyOrder {
 
     }
 
-// Getters and Setters
+// Getters and Setters.
 
     setId(id) {
 
@@ -52,8 +53,4 @@ class SnappyOrder {
 
     }
 
-    
-
-
-    
 }
