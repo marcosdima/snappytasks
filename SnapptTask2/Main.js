@@ -1,11 +1,18 @@
-let Conversacion = require('./Conversacion.js');
-let Mensaje = require('./Mensaje.js');
+const Conversacion = require('./Conversacion.js');
+const Mensaje = require('./Mensaje.js');
+const mensajes = require('./Mensajes.json');
 
 let chat = new Conversacion();
-let msj = new Mensaje("Carlos", "Hola", "2022-03-26");
-let msj2 = new Mensaje("Carlos", "Aaa", "2022-03-25");
+let mensaje;
 
-chat.appendMensaje(msj);
-chat.appendMensaje(msj2);
+for (let msj of mensajes.Mensajes) {
 
-console.log(chat.lastMessage().getText());
+    mensaje = new Mensaje(msj.sender, msj.text, msj.dateTime);
+    chat.appendMensaje(mensaje);
+
+}
+
+console.log("Último mensaje: " + chat.lastMessage().getSender());
+console.log("Duración de la conversación: " + chat.duration());
+
+console.log("Terminó!");

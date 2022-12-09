@@ -12,10 +12,17 @@ class Mensaje {
 
     }
 
+    // Devuelve true si este mensaje es anterior al mensaje pasado por parámetro.
     isOlder(mensaje) {
 
-        let older = this.#date < mensaje.getDate();
-        return older;
+        return this.#date < mensaje.getDate();
+
+    }
+
+    // Devuelve true si este mensaje es posterior al mensaje pasado por parámetro.
+    isNewer(mensaje) {
+
+        return this.#date > mensaje.getDate();
 
     }
 
