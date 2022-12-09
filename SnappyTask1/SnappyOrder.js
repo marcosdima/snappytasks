@@ -8,7 +8,7 @@ class SnappyOrder {
 
         this.setId(id);
         this.setEstado(estado);
-        this.arreglo = arreglo;
+        this.#arreglo = arreglo;
 
     }
 
@@ -54,3 +54,5 @@ class SnappyOrder {
     }
 
 }
+
+module.exports = SnappyOrder;

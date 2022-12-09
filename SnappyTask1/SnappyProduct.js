@@ -65,3 +65,5 @@ class SnappyProduct {
     }
 
 }
+
+module.exports = SnappyProduct;
