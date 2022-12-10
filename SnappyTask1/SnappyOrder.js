@@ -4,11 +4,11 @@ class SnappyOrder {
     #estado;
     #arreglo;
 
-    constructor(id, estado, arreglo) {
+    constructor(id, estado) {
 
         this.setId(id);
         this.setEstado(estado);
-        this.#arreglo = arreglo;
+        this.#arreglo = [];
 
     }
 
@@ -24,6 +24,13 @@ class SnappyOrder {
         }
 
         return total;
+
+    }
+
+    // Agrega un producto a la orden.
+    appendProduct(producto) {
+
+        this.#arreglo.push(producto);
 
     }
 

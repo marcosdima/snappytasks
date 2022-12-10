@@ -1,16 +1,46 @@
 let SnappyProduct = require('./SnappyProduct.js');
-let SnappyOrder = require('./SnappyOrder.js');
+const SnappyOrder = require('./SnappyOrder.js');
+const ShopifyOrders = require('./ShopifyOrders.js');
 
-console.log("Hola");
+const nombre = 'd28cda300f5517794e044ff353002339';
+const store = 'snappy-commerce';
+const password = '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';
+const orderId = 1001;
 
-// Constructor: id, nombre, precio y cantidad.
-let p1 = new SnappyProduct(1, 'a', 10, 4);
-let p2 = new SnappyProduct(2, 'b', 100, 3);
-let p3 = new SnappyProduct(3, 'c', 1000, 2);
-let p4 = new SnappyProduct(4, 'd', 10000, 1);
+let llamada = new ShopifyOrders(nombre, store, password);
 
-const array = [p1, p2, p3, p4];
+llamada.getOrders()
+.then(json => {
 
-let test = new SnappyOrder(1, 'abierto', array);
+    console.log(json);
+    let order = new SnappyOrder(orderId, null);
+    let currency;
+    let ordenSolicitada;
 
-console.log(test.getPrecioTotal());
+    for (let objeto of json.orders) {
+
+        if (objeto.order_number == orderId) {
+
+            ordenSolicitada = objeto;
+            order.setEstado(objeto.financial_status)
+            currency = objeto.currency;
+
+        }
+
+    }
+
+    for (let articulo of ordenSolicitada.line_items) {
+
+        let producto = new SnappyProduct(
+            articulo.id, 
+            articulo.name, 
+            articulo.price, 
+            articulo.quantity);
+        
+        order.appendProduct(producto);
+        
+    }
+
+    console.log("Precio total de la orden: ", order.getPrecioTotal(), currency);
+
+});
