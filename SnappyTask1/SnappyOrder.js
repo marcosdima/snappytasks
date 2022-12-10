@@ -19,7 +19,7 @@ class SnappyOrder {
 
         for (let producto of this.#arreglo) {
 
-            total += (producto.getPrecio() * producto.getCantidad());
+            total += producto.getPrecioTotal();
 
         }
 

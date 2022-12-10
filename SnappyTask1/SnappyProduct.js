@@ -14,6 +14,13 @@ class SnappyProduct {
 
     }
 
+    // Retorna el precio multiplicado por la cantidad de unidades.
+    getPrecioTotal() {
+
+        return (this.getPrecio() * this.getCantidad());
+
+    }
+
     // Setters and Getters.
 
     setId(id) {
