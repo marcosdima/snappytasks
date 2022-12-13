@@ -24,15 +24,15 @@ class ShopifyOrders {
         - Utilizo la función fetch para realizar el pedido a la API de shopify.
         - Guardo la promise que devuelve para retornarla al final del método.
         */
-        let promesa = fetch(url, {
+        let jsonOrder = fetch(url, {
 
                 method: "GET",
                 headers: header,
     
             })
-                .then(response => response.json())
+            .then(response => response.json());
 
-        return promesa;
+        return jsonOrder;
 
     };
 

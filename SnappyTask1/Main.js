@@ -1,4 +1,4 @@
-let SnappyProduct = require('./SnappyProduct.js');
+const SnappyProduct = require('./SnappyProduct.js');
 const SnappyOrder = require('./SnappyOrder.js');
 const ShopifyOrders = require('./ShopifyOrders.js');
 
@@ -41,10 +41,11 @@ llamada.getOrders()
         
     }
 
+   
     console.log();
-    console.log("Estado de la orden: ", order.getEstado());
+    console.log(order.informe());
+    console.log();
     console.log("Precio total de la orden: ", order.getPrecioTotal(), ordenSolicitada.currency);
-    console.log();
 
 })
 .catch(error => console.log(error));

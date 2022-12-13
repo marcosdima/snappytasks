@@ -21,6 +21,21 @@ class SnappyProduct {
 
     }
 
+    informe(tab) {
+
+        let espacio = " ";
+        let informe = " ";
+        
+        espacio = espacio.repeat(tab);
+        informe = espacio + "ID: " + this.#id + '\n' +
+                    espacio + "Nombre: " + this.#nombre + '\n' +
+                    espacio + "Precio: " + this.#precio + '\n' +
+                    espacio + "Cantidad: " + this.#cantidad + '\n' ;
+
+        return informe;
+
+    }
+
     // Setters and Getters.
 
     setId(id) {

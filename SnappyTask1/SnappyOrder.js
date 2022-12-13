@@ -34,6 +34,30 @@ class SnappyOrder {
 
     }
 
+    informe(tab) {
+
+        let espacio = " ";
+        let contador = 1;
+        let informe = "";
+        
+        espacio = espacio.repeat(tab);
+        informe = espacio + "ID: " + this.#id + '\n' +
+                    espacio + "Estado: " + this.#estado + '\n' +
+                    espacio + "SnappyProducts: " + '\n' ;
+
+        for (let producto of this.#arreglo) {
+
+            informe += contador + "- " + '\n' +
+                    producto.informe(4) + '\n';
+                    
+            contador++;
+
+        }
+
+        return informe;
+
+    }
+
 // Getters and Setters.
 
     setId(id) {
